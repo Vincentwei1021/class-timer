@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-200: #a7f3d0;
+  --emerald-300: #6ee7b7;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-800: #065f46;
+  --emerald-900: #064e3b;
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.3);
+  --bg: #f0fdf4;
+  --bg-card: #ffffff;
+  --text-primary: #064e3b;
+  --text-secondary: #065f46;
+  --text-muted: #6b7280;
+  --ring-track: #d1fae5;
+  --ring-fill: #10b981;
+  --shadow-soft: 0 4px 24px rgba(5, 150, 105, 0.08);
+  --shadow-elevated: 0 8px 40px rgba(5, 150, 105, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+  --color-danger: #ef4444;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+/* Progress ring animation */
+@keyframes ring-progress {
+  from { stroke-dashoffset: var(--ring-circumference); }
+  to { stroke-dashoffset: var(--ring-target); }
+}
+
+/* Pulse animation for last 30 seconds */
+@keyframes danger-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-danger-pulse {
+  animation: danger-pulse 1s ease-in-out infinite;
+}
+
+/* Countdown pop animation for last 10 seconds */
+@keyframes countdown-pop {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+}
+
+.animate-countdown-pop {
+  animation: countdown-pop 1s ease-out;
+}
+
+/* Flash animation when timer ends */
+@keyframes flash-end {
+  0%, 100% { background-color: transparent; }
+  25% { background-color: rgba(239, 68, 68, 0.08); }
+  50% { background-color: transparent; }
+  75% { background-color: rgba(239, 68, 68, 0.06); }
+}
+
+.animate-flash {
+  animation: flash-end 2s ease-out 3;
+}
+
+/* Time's up text animation */
+@keyframes slide-up-fade {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-slide-up {
+  animation: slide-up-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Bounce in for completion */
+@keyframes bounce-in {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Subtle floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Button press effect */
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* Smooth number transitions */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fullscreen styles */
+.fullscreen-mode {
+  background: #022c22 !important;
+  color: #ecfdf5 !important;
+}
+
+.fullscreen-mode .timer-display {
+  font-size: clamp(6rem, 22vw, 20rem) !important;
+  line-height: 1;
+}
+
+.fullscreen-mode .ring-track {
+  stroke: #065f46;
+}
+
+.fullscreen-mode .ring-fill {
+  stroke: #34d399;
+}
+
+.fullscreen-mode .ring-fill-danger {
+  stroke: #ef4444;
+}
+
+.fullscreen-mode .timer-danger {
+  color: #fca5a5 !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--emerald-300);
+  border-radius: 3px;
+}
+
+/* Ad container */
+.ad-container {
+  min-height: 90px;
+  background: linear-gradient(135deg, var(--emerald-50) 0%, white 100%);
+  border: 1px dashed var(--emerald-200);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
