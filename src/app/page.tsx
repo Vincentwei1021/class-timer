@@ -638,21 +638,6 @@ export default function Home() {
           </div>
         )}
 
-        {/* AdSense placeholder - hidden in fullscreen */}
-        {!isFullscreen && (
-          <div className="mt-8 w-full max-w-2xl px-4">
-            <div className="ad-container">
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block" }}
-                data-ad-client="ca-pub-5881105388002876"
-                data-ad-slot="auto"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              />
-            </div>
-          </div>
-        )}
       </main>
 
       {/* Footer - hidden in fullscreen */}
